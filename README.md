@@ -4,7 +4,8 @@
 
 Terraform module that triggers the execution of the step function on every Terraform Apply. Utilizes the DynamoDB Streams to trigger AWS Lambda which starts the Step Function execution.
 
-![Module Architecture](docs/architecture-diagram.jpg)
+## Architecture
+<img src="https://raw.githubusercontent.com/naveen-vijay/terraform-aws-stepfunction-trigger-on-apply/dev/docs/architecture-diagram.jpg">
 
 ## Usage
 
@@ -12,12 +13,14 @@ Terraform module that triggers the execution of the step function on every Terra
 provider "aws" {
   region = "us-east-1"
   default_tags {
-    tags = var.tags
+    tags = {
+        Foo = "Bar"
+    }
   }
 }
 
 module "this" {
-  source = "../../"
+  source = "naveen-vijay/stepfunction-trigger-on-apply/aws"
 
   stepfunction_arn = var.stepfunction_arn
 }
