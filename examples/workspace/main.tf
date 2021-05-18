@@ -6,7 +6,7 @@ provider "aws" {
 }
 
 module "this" {
-  source = "../../"
+  source           = "naveen-vijay/stepfunction-trigger-on-apply/aws"
   stepfunction_arn = var.stepfunction_arn
 
   providers = {
